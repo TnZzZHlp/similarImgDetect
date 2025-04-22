@@ -7,8 +7,7 @@ version = "0.1.0"
 avif = ["image/avif-native"]
 
 [dependencies]
-clap = { version = "4.5.37", features = ["derive"] }
-hashbrown = "0.15.2"
+clap = {version = "4.5.37", features = ["derive"]}
 image = "0.25.6"
 image_hasher = "3.0.0"
 indicatif = "0.17.11"

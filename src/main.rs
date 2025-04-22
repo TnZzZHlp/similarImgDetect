@@ -3,7 +3,6 @@ use image_hasher::HasherConfig;
 use indicatif::{ProgressState, ProgressStyle};
 use rayon::iter::{IntoParallelIterator, ParallelIterator};
 use std::collections::HashMap;
-use std::path::PathBuf;
 use std::{fmt, fs::read_dir, path::Path, sync::Mutex, time::Duration};
 
 mod dsu;
