@@ -1,0 +1,15 @@
+[package]
+edition = "2024"
+name = "similarImgDetect"
+version = "0.1.0"
+
+[features]
+avif = ["image/avif-native"]
+
+[dependencies]
+clap = { version = "4.5.37", features = ["derive"] }
+hashbrown = "0.15.2"
+image = "0.25.6"
+image_hasher = "3.0.0"
+indicatif = "0.17.11"
+rayon = "1.10.0"
