@@ -3,6 +3,7 @@ use image_hasher::HasherConfig;
 use indicatif::{ProgressState, ProgressStyle};
 use rayon::iter::{IntoParallelIterator, ParallelIterator};
 use std::collections::HashMap;
+use std::path::PathBuf;
 use std::{fmt, fs::read_dir, path::Path, sync::Mutex, time::Duration};
 
 mod dsu;
@@ -48,7 +49,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         // Create the target directory if it doesn't exist
                         std::fs::create_dir_all(format!("{}/{}", target_path, i + 1))?;
                         for image in group {
-                            let target = format!("{}/{}/{}", target_path, i + 1, image);
+                            let target = format!(
+                                "{}/{}/{}",
+                                target_path,
+                                i + 1,
+                                Path::new(image).file_name().unwrap().to_string_lossy()
+                            );
                             std::fs::rename(image, target)?;
                         }
                     } else {
@@ -60,7 +66,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         // Create the target directory if it doesn't exist
                         std::fs::create_dir_all(format!("{}/{}", target_path, i + 1))?;
                         for image in group {
-                            let target = format!("{}/{}/{}", target_path, i + 1, image);
+                            let target = format!(
+                                "{}/{}/{}",
+                                target_path,
+                                i + 1,
+                                Path::new(image).file_name().unwrap().to_string_lossy()
+                            );
                             std::fs::copy(image, target)?;
                         }
                     } else {
