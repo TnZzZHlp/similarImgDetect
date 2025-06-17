@@ -86,7 +86,7 @@ jobs:
                   mv target/${{ matrix.target }}/release/similarImgDetect target/${{ matrix.target }}/release/similarImgDetect-${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}-${{ matrix.target }}
                   echo "output_file=target/${{ matrix.target }}/release/similarImgDetect-${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}-${{ matrix.target }}" >> $GITHUB_ENV
 
-            - name: Publish release Windows
+            - name: Publish release
               uses: softprops/action-gh-release@v2
               with:
                   draft: false
